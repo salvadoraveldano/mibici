@@ -21,7 +21,7 @@ oct18 %>%
   qplot
 
 
-oct18 %>% 
+oct18 %<>% 
   left_join(stations %>% 
               select_all(~str_c(.,'_orig')), 
             by = c('Origen_Id' = 'id_orig')
@@ -29,6 +29,4 @@ oct18 %>%
   left_join(stations %>% 
               select_all(~str_c(.,'_dest')),
             by = c('Destino_Id' = 'id_dest')
-            ) %>% 
-  sample_n(1) %>% 
-  t
+            )
