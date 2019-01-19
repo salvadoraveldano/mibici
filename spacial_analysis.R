@@ -1,4 +1,6 @@
 ## Ggmap approach
+
+
 mapbox_token <- read_lines('mapbox.token')
 
 GDL <- get_googlemap(
@@ -17,11 +19,13 @@ base <-  trips %>%
     # hour(Inicio_del_viaje)   %in% 17,
     # minute(Inicio_del_viaje) %in% 30:59,
     # duration                  > 30
-         ) %>% 
-  top_n(
-    n = 10, 
-    wt = duration
-    )
+         ) %>%
+  sample_n(1000)
+# 
+#   top_n(
+#     n = 1000, 
+#     wt = duration
+#     )
 
 base %>% 
   dim
